@@ -15,6 +15,9 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent-mysql-driver.git", from: "4.0.0"),
         // 🍃 An expressive, performant, and extensible templating language built for Swift.
         .package(url: "https://github.com/vapor/leaf.git", from: "4.2.4"),
+        // https://pioneer-graphql.netlify.app/getting-started/
+        .package(url: "https://github.com/GraphQLSwift/Graphiti.git", from: "1.2.1"),
+        .package(url: "https://github.com/d-exclaimation/pioneer", from: "1.0.0")
     ],
     targets: [
         .executableTarget(
@@ -23,6 +26,8 @@ let package = Package(
                 .product(name: "Fluent", package: "fluent"),
                 .product(name: "FluentMySQLDriver", package: "fluent-mysql-driver"),
                 .product(name: "Leaf", package: "leaf"),
+                .product(name: "Pioneer", package: "pioneer"),
+                .product(name: "Graphiti", package: "Graphiti"),
                 .product(name: "Vapor", package: "vapor"),
             ]
         ),
@@ -34,6 +39,8 @@ let package = Package(
             .product(name: "Vapor", package: "vapor"),
             .product(name: "Fluent", package: "Fluent"),
             .product(name: "FluentMySQLDriver", package: "fluent-mysql-driver"),
+            .product(name: "Pioneer", package: "pioneer"),
+            .product(name: "Graphiti", package: "Graphiti"),
             .product(name: "Leaf", package: "leaf"),
         ])
     ]
