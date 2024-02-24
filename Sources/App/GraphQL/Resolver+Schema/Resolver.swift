@@ -5,6 +5,8 @@
 //  Created by Jani Pasanen on 2024-02-24.
 //
 
+import Pioneer
+import class GraphQL.EventStream
 import struct Graphiti.NoArguments
 import struct Vapor.Abort
 
@@ -28,7 +30,7 @@ struct Resolver {
         guard let book else {
             throw Abort(.internalServerError)
         }
-        await pubsub.publish(for: trigger, payload: book)
+        try await pubsub.publish(for: trigger, payload: book)
         return book
     }
     

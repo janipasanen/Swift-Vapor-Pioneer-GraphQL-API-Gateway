@@ -9,7 +9,7 @@ import Graphiti
 import struct Pioneer.ID
 
 func schema() throws -> Schema<Resolver, Context> {
-    .init {
+    try .init {
         // Adding ID as usable scalar for Graphiti
         Scalar(ID.self)
 
@@ -26,14 +26,14 @@ func schema() throws -> Schema<Resolver, Context> {
 
         Mutation {
             // The root mutation field to create a new book
-            Field("newBook", at: Resolver.book) {
+            Field("newBook", at: Resolver.newBook) {
                 // Argument for this field
                 Argument("title", at: \.title)
             }
         }
         
         Subscription {
-            SubsciptionField("bookAdded", as: Book.self, atSub: Resolver.bookAdded)
+            SubscriptionField("bookAdded", as: Book.self, atSub: Resolver.bookAdded)
         }
     }
 }

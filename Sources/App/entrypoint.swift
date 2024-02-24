@@ -27,10 +27,10 @@ enum Entrypoint {
             server.vaporMiddleware(
                 at: "graphql",
                 context: { req, res in
-                    Context(req, res)
-                }
+                    Context(req: req, res: res)
+                },
                 websocketContext: { req, payload, gql in
-                    Context(req, .init())
+                    Context(req: req, res: .init())
                 }
             )
         )

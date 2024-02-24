@@ -7,7 +7,7 @@
 
 import struct Pioneer.ID
 
-struct Book: Identifiable {
+struct Book: Identifiable, Codable {
     var id: ID
     var title: String
 }
